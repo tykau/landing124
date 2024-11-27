@@ -13,56 +13,83 @@
   <div class="container">
     <!-- first level columns begin-->
     <div class="columns">
-      <div class="column is-one-fifth"></div>
+      <div class="column"></div>
       <div class="column">
         <div class="content">
-          <h1>Welcome to My Landing Page</h1>
-          <p>This is a simple example landing page.</p>
-          <a href="#" class="cta-button">Learn More</a>
-        </div>
+          <h1>Татарча Wordle</h1>
+          <div class="control" >
+            <input type="button"  class="button is-primary mb-5" value="Старт" onclick="startGame()">
+          </div>
+          <div style="display: none;" id="gameBoard">
+          
+            <hr>
+  
+            <div class="field">
+              <!-- 1 trial -->
+              <div class="control">
+                <input onkeydown="passFocus()"  id="letter_0_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()"  id="letter_0_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_0_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_0_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_0_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+              </div>
+              <!-- 2 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()"  id="letter_1_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()"  id="letter_1_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_1_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_1_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_1_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+              </div>
+              <!-- 3 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()"  id="letter_2_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()"  id="letter_2_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_2_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_2_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_2_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+              </div>
+  
+              <!-- 4 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()"  id="letter_3_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()"  id="letter_3_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_3_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_3_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_3_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+              </div>
+  
+              <!-- 5 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()"  id="letter_4_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()"  id="letter_4_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_4_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_4_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_4_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+              </div>
+  
+              <!-- 6 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()"  id="letter_5_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()"  id="letter_5_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_5_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_5_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()"  id="letter_5_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
+              </div>
+            </div>
+            <div class="control">
+              <button onclick="check()" class="button is-primary">Ввести слово</button>
+            </div>
+          </div>
+
+          </div>
+          
+
       </div>
       <div class="column"></div>
     </div>
     <!-- first level columns end-->
-    <div class="columns">
-      <div class="column"></div>
-      <div class="column">
-        <div class="content">
-           <input id="guess" type="text" value="китап">
-        </div>
-        <div class="field">
-          <div class="control">
-              <input id="letter_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-              <input id="letter_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              <input id="letter_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              <input id="letter_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              <input id="letter_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-          </div>
 
-          <div class="control mt-2">
-            <input id="letter_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-            <input id="letter_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-            <input id="letter_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-            <input id="letter_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-            <input id="letter_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-        </div>
-
-        <div class="control mt-2">
-          <input id="letter_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-          <input id="letter_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-          <input id="letter_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-          <input id="letter_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-          <input id="letter_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-      </div>
-
-      </div>
-
-      </div>
-      <div class="column">
-        <button onclick="check()" class="button is-primary">Ввести слово</button>
-      </div>
-      <div class="column"></div>
-    </div>
 
 
   </div>
