@@ -1,4 +1,5 @@
 let word
+let typed
 let trial
 let currentFocus = [0, 0]
 let words = ["кибет", "табак", "кадак", "кабак",
@@ -12,6 +13,20 @@ function f(arr) {
     return 'letter_' + arr[0] + '_' + arr[1]
 }
 
+function typeLetter(ch){
+        typed = typed + ch
+        event.preventDefault()
+        document.getElementById(f(currentFocus)).value = ch
+        if (currentFocus[1] < 4) {
+            currentFocus[1]++
+            console.log('Смена фокуса: ', currentFocus);
+
+            document.getElementById(f(currentFocus)).focus()
+            document.getElementById(f(currentFocus)).value = ''
+        }
+
+}
+
 function startGame() {
     // инициализация
     
@@ -19,6 +34,7 @@ function startGame() {
     word = words[randomIndex]
     console.log(word);
     trial = 0
+    typed = ''
 
     // показ контейнера с игрой
     document.getElementById('gameBoard').style.display = 'inline'
@@ -30,14 +46,16 @@ function passFocus() {
     if (event.keyCode == 8) {
         // alert("Удоли");
         document.getElementById(f(currentFocus)).value = ''
+        typed = typed.slice(0, typed.length-1)
+        console.log(typed);
         currentFocus[1] = Math.max(currentFocus[1] - 1, 0);
-        console.log('Возврат: ', currentFocus);
+        // console.log('Возврат: ', currentFocus);
         document.getElementById(f(currentFocus)).focus()
     }
 
     if (event.keyCode == 13) {
-        // alert("Удоли");
-        if (currentFocus[1] == 4) {
+
+        if (typed.length == 5) {
             check()
         }
         else {
@@ -47,17 +65,20 @@ function passFocus() {
 
     else {
         // значит, обычный ввод, а не удаление
-
+    
         if (letters.includes(event.key)) {
-            event.preventDefault()
-            document.getElementById(f(currentFocus)).value = (event.key).toUpperCase()
-            if (currentFocus[1] < 4) {
-                currentFocus[1]++
-                console.log('Смена фокуса: ', currentFocus);
-
-                document.getElementById(f(currentFocus)).focus()
-                document.getElementById(f(currentFocus)).value = ''
+            if (typed.length < 5) {
+                event.preventDefault()
+                document.getElementById(f(currentFocus)).value = (event.key).toUpperCase()
+                typed = typed + (event.key)
+                console.log(typed);
+                if (currentFocus[1] < 4) {
+                    currentFocus[1]++
+                    document.getElementById(f(currentFocus)).focus()
+                    document.getElementById(f(currentFocus)).value = ''
+                }
             }
+
         }
         else {
             event.preventDefault()
@@ -69,6 +90,7 @@ function passFocus() {
 
 
 function check() {
+    typed = ''
     let color;
     let guess = ''
     for (let i = 0; i < 5;i++) {
@@ -83,20 +105,23 @@ function check() {
             // окей, она по крайней мере оранжевая, а зеленая ли?
             if (guess[index] == word[index]) {
                 console.log('Буква ' + guess[index] + ' зелёная');
-                color = 'green'
+                color = 'CadetBlue'
             }
             // не зеленая -- значит оранжевая
             else {
                 console.log('Буква ' + guess[index] + ' оранжевая');
-                color = 'orange'
+                color = 'Coral'
             }
         }
         else {
             console.log('Такой буквы нет: ' + guess[index]);
-            color = 'gray'
+            color = 'Beige'
         }
         document.getElementById('letter_' + trial + '_' + index).value = (guess[index]).toUpperCase();
         document.getElementById('letter_' + trial + '_' + index).style.backgroundColor = color;
+
+        // document.getElementById('btn_'+ guess[index].toLowerCase()).style.backgroundClip = color;
+        document.getElementById('btn_'+ guess[index].toLowerCase()).style.backgroundColor = color;
     }
     if (guess.toLowerCase() == word) {
         alert('You are winrar')
@@ -114,4 +139,21 @@ function check() {
         }
     }
 
+}
+
+function pressCheck(){
+    if (typed.length == 5){
+        check()
+    }
+}
+
+function erase(){
+
+        // alert("Удоли");
+        document.getElementById(f(currentFocus)).value = ''
+        typed = typed.slice(0, typed.length-1)
+        console.log(typed);
+        currentFocus[1] = Math.max(currentFocus[1] - 1, 0);
+        // console.log('Возврат: ', currentFocus);
+        document.getElementById(f(currentFocus)).focus()
 }

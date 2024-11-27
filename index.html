@@ -7,83 +7,182 @@
   <title>My Bulma site</title>
   <script src=" static/js/script.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
+  <style>
+    .button.is-tiny {
+      font-size: 16px; /* Уменьшает размер текста */
+      padding: 2px 4px; /* Уменьшает отступы внутри кнопки */
+      height: 45px; /* Высота кнопки */
+      width: 25px; /* Ширина кнопки */
+      line-height: 20px; /* Высота строки внутри кнопки */
+    }
+  </style>
+  
+
 </head>
 
 <body>
+
+
   <div class="container">
     <!-- first level columns begin-->
     <div class="columns">
       <div class="column"></div>
       <div class="column">
         <div class="content">
-          <h1>Татарча Wordle</h1>
-          <div class="control" >
-            <input type="button"  class="button is-primary mb-5" value="Старт" onclick="startGame()">
-          </div>
-          <div style="display: none;" id="gameBoard">
-          
-            <hr>
-  
-            <div class="field">
-              <!-- 1 trial -->
-              <div class="control">
-                <input onkeydown="passFocus()"  id="letter_0_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-                <input onkeydown="passFocus()"  id="letter_0_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_0_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_0_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_0_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              </div>
-              <!-- 2 trial -->
-              <div class="control mt-2">
-                <input onkeydown="passFocus()"  id="letter_1_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-                <input onkeydown="passFocus()"  id="letter_1_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_1_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_1_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_1_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              </div>
-              <!-- 3 trial -->
-              <div class="control mt-2">
-                <input onkeydown="passFocus()"  id="letter_2_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-                <input onkeydown="passFocus()"  id="letter_2_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_2_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_2_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_2_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              </div>
-  
-              <!-- 4 trial -->
-              <div class="control mt-2">
-                <input onkeydown="passFocus()"  id="letter_3_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-                <input onkeydown="passFocus()"  id="letter_3_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_3_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_3_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_3_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              </div>
-  
-              <!-- 5 trial -->
-              <div class="control mt-2">
-                <input onkeydown="passFocus()"  id="letter_4_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-                <input onkeydown="passFocus()"  id="letter_4_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_4_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_4_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_4_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              </div>
-  
-              <!-- 6 trial -->
-              <div class="control mt-2">
-                <input onkeydown="passFocus()"  id="letter_5_0" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center;">
-                <input onkeydown="passFocus()"  id="letter_5_1" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_5_2" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_5_3" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-                <input onkeydown="passFocus()"  id="letter_5_4" type="text" class="input" maxlength="1" style="width: 5ch; text-align: center; ">
-              </div>
-            </div>
+
+          <div class="has-text-centered">
+            <h1>Татарча Wordle</h1>
             <div class="control">
-              <button onclick="check()" class="button is-primary">Ввести слово</button>
+              <input type="button" class="button is-primary mb-5" value="Старт" onclick="startGame()">
             </div>
           </div>
 
+
+          <div class="has-text-centered" style="display: none;" id="gameBoard">
+
+            <hr>
+
+            <div class="field">
+              <!-- 1 trial -->
+              <div class="control">
+                <input onkeydown="passFocus()" id="letter_0_0" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()" id="letter_0_1" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_0_2" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_0_3" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_0_4" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+              </div>
+              <!-- 2 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()" id="letter_1_0" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()" id="letter_1_1" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_1_2" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_1_3" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_1_4" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+              </div>
+              <!-- 3 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()" id="letter_2_0" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()" id="letter_2_1" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_2_2" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_2_3" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_2_4" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+              </div>
+
+              <!-- 4 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()" id="letter_3_0" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()" id="letter_3_1" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_3_2" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_3_3" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_3_4" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+              </div>
+
+              <!-- 5 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()" id="letter_4_0" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()" id="letter_4_1" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_4_2" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_4_3" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_4_4" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+              </div>
+
+              <!-- 6 trial -->
+              <div class="control mt-2">
+                <input onkeydown="passFocus()" id="letter_5_0" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center;">
+                <input onkeydown="passFocus()" id="letter_5_1" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_5_2" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_5_3" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+                <input onkeydown="passFocus()" id="letter_5_4" type="text" class="input is-large" maxlength="1"
+                  style="width: 5ch; text-align: center; ">
+              </div>
+            </div>
+
+            <hr class="mb-5">
+            <div class="content">
+
+              <input onclick="typeLetter('Й')" id="btn_й" class='button is-tiny' type="button" value="Й">
+              <input onclick="typeLetter('Ц')" id="btn_ц" class='button is-tiny' type="button" value="Ц">
+              <input onclick="typeLetter('У')" id="btn_у" class='button is-tiny' type="button" value="У">
+              <input onclick="typeLetter('К')" id="btn_к" class='button is-tiny' type="button" value="К">
+              <input onclick="typeLetter('Е')" id="btn_е" class='button is-tiny' type="button" value="Е">
+              <input onclick="typeLetter('Ә')" id="btn_ә" class='button is-tiny' type="button" value="Ә">
+              <input onclick="typeLetter('Ө')" id="btn_ө" class='button is-tiny' type="button" value="Ө">
+              <input onclick="typeLetter('Н')" id="btn_н" class='button is-tiny' type="button" value="Н">
+              <input onclick="typeLetter('Г')" id="btn_г" class='button is-tiny' type="button" value="Г">
+              <input onclick="typeLetter('Ш')" id="btn_ш" class='button is-tiny' type="button" value="Ш">
+              <input onclick="typeLetter('Щ')" id="btn_щ" class='button is-tiny' type="button" value="Щ">
+              <input onclick="typeLetter('З')" id="btn_з" class='button is-tiny' type="button" value="З">
+              <input onclick="typeLetter('Х')" id="btn_х" class='button is-tiny' type="button" value="Х">
+              <input onclick="typeLetter('Ъ')" id="btn_ъ" class='button is-tiny' type="button" value="Ъ">
+            </div>
+            <div class="content">
+              <input onclick="typeLetter('Ф')" id="btn_ф" class='button is-tiny ml-2' type="button" value="Ф">
+              <input onclick="typeLetter('Ы')" id="btn_ы" class='button is-tiny' type="button" value="Ы">
+              <input onclick="typeLetter('В')" id="btn_в" class='button is-tiny' type="button" value="В">
+              <input onclick="typeLetter('А')" id="btn_а" class='button is-tiny' type="button" value="А">
+              <input onclick="typeLetter('П')" id="btn_п" class='button is-tiny' type="button" value="П">
+              <input onclick="typeLetter('Җ')" id="btn_җ" class='button is-tiny' type="button" value="Җ">
+              <input onclick="typeLetter('Ң')" id="btn_ң" class='button is-tiny' type="button" value="Ң">
+              <input onclick="typeLetter('Р')" id="btn_р" class='button is-tiny' type="button" value="Р">
+              <input onclick="typeLetter('О')" id="btn_о" class='button is-tiny' type="button" value="О">
+              <input onclick="typeLetter('Л')" id="btn_л" class='button is-tiny' type="button" value="Л">
+              <input onclick="typeLetter('Д')" id="btn_д" class='button is-tiny' type="button" value="Д">
+              <input onclick="typeLetter('Ж')" id="btn_ж" class='button is-tiny' type="button" value="Ж">
+              <input onclick="typeLetter('Э')" id="btn_э" class='button is-tiny' type="button" value="Э">
+              <input onclick="erase()" class='button is-tiny is-link' type="button" value="<-">
+            </div>
+            <div class="content">
+              <input onclick="typeLetter('Я')" id="btn_я" class='button is-tiny ml-5' type="button" value="Я">   
+              <input onclick="typeLetter('Һ')" id="btn_һ" class='button is-tiny' type="button" value="Һ">
+              <input onclick="typeLetter('С')" id="btn_с" class='button is-tiny' type="button" value="С">
+              <input onclick="typeLetter('М')" id="btn_м" class='button is-tiny' type="button" value="М">
+              <input onclick="typeLetter('Ч')" id="btn_ч" class='button is-tiny' type="button" value="Ч">
+              <input onclick="typeLetter('Ү')" id="btn_ү" class='button is-tiny' type="button" value="Ү">
+              <input onclick="typeLetter('И')" id="btn_и" class='button is-tiny' type="button" value="И">
+              <input onclick="typeLetter('Т')" id="btn_т" class='button is-tiny' type="button" value="Т">
+              <input onclick="typeLetter('Ь')" id="btn_ь" class='button is-tiny' type="button" value="Ь">
+              <input onclick="typeLetter('Б')" id="btn_б" class='button is-tiny' type="button" value="Б">
+              <input onclick="typeLetter('Ю')" id="btn_ю" class='button is-tiny' type="button" value="Ю">
+              <input onclick="pressCheck()" class='button is-tiny is-link' type="button" value="=>">
+            </div>
+            
+            <div class="control">
+              <button onclick="check()" class="button is-primary">Ввести слово</button>
+            </div>
+                    
           </div>
-          
+
+        </div>
 
       </div>
       <div class="column"></div>
